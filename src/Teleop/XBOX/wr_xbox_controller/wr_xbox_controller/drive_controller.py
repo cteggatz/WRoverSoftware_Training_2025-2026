@@ -2,14 +2,21 @@
 import rclpy
 import rclpy.node import Node
 import std_msgs.msg import String
+import pygame
 
 # This is the publisher node that will send out the controller data
 class ControllerHandler(Node):
+    
+    controllers = []
+
     #
     def __init__(self):
         # call the node constructor
         super().__init__("controler_handler")
         
+        pygame.init()
+        pygame.controller.init()
+
         # IDK wtf thise does  
         self.publisher = self.create_publisher(String, "topic", 10)
         
@@ -19,15 +26,21 @@ class ControllerHandler(Node):
 
     # Feedback look 
     def timer_callback(self):
-        # get information        
+        # using pygame get events
+        for event in pygame.event.get():
+            if event.type == :
 
+        
 
 
 
 
 def main(args = None):
+    # ROS2 init
     rclpy.init(args = args)
     
+    
+
     #Start the node
     rclpy.spin(ControlHandler())
 
